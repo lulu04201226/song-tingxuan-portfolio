@@ -1,0 +1,10 @@
+import Link from "next/link";
+import { ArrowUpRightIcon, ChartBarIcon } from "@heroicons/react/24/outline";
+import { projects } from "@/data/projects";
+
+export function Header(){return <header className="site-header"><Link href="/" className="brand"><span className="brand-mark">宋</span><span>宋亭萱</span></Link><nav aria-label="主导航"><Link href="/#projects">项目</Link><Link href="/#skills">能力</Link><a href={projects[0].github} target="_blank" rel="noreferrer">GitHub <span aria-hidden>↗</span></a></nav></header>}
+export function Footer(){return <footer><div><p className="footer-title">从数据中找到值得行动的答案。</p><p className="muted">数据分析 · 产品分析</p></div><div className="footer-links">{projects.map(p=><a key={p.slug} href={p.github} target="_blank" rel="noreferrer" aria-label={`${p.title} GitHub 仓库（新窗口打开）`}>{p.title}<ArrowUpRightIcon/></a>)}</div></footer>}
+export function ProjectCard({project,index}:{project:(typeof projects)[number],index:number}){return <article className="project-card"><div className="card-top"><span className="index">0{index+1}</span><span className="tag">{project.eyebrow}</span></div><h3>{project.title}</h3><p className="question">{project.question}</p><div className="mini-metrics">{project.metrics.slice(0,2).map(m=><div key={m.label}><strong>{m.value}</strong><span>{m.label}</span></div>)}</div><Link className="text-link" href={`/projects/${project.slug}`}>查看完整案例 <span aria-hidden>→</span></Link></article>}
+export function SectionTitle({kicker,title,copy}:{kicker:string,title:string,copy?:string}){return <div className="section-title"><span>{kicker}</span><h2>{title}</h2>{copy&&<p>{copy}</p>}</div>}
+export function GithubButton({href,label="查看项目代码"}:{href:string,label?:string}){return <a className="button" href={href} target="_blank" rel="noreferrer" aria-label={`${label}（新窗口打开）`}><ChartBarIcon/>{label}<ArrowUpRightIcon/></a>}
+export function BackToTop(){return <a className="back-top" href="#top" aria-label="返回页面顶部">↑</a>}
