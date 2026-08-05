@@ -143,3 +143,69 @@ body{background-color:#f4efe3;background-image:radial-gradient(circle at 18% 8%,
 footer{position:relative;background-image:linear-gradient(rgba(244,239,227,.72),rgba(244,239,227,.72)),url('/visuals/literary-divider.webp');background-size:cover;background-position:center}
 @media(max-width:900px){.home-hero{grid-template-columns:1fr;min-height:auto;background-image:linear-gradient(180deg,rgba(246,241,230,.98) 0%,rgba(246,241,230,.84) 58%,rgba(246,241,230,.2) 100%),url('/visuals/literary-hero.webp');background-position:60% center;padding-bottom:5rem}.hero-profile{max-width:620px;margin:2rem 0 0}.project-card:nth-child(2),.project-card:nth-child(3){transform:none}}
 @media(max-width:600px){.home-hero{padding:5.5rem 0 3.5rem;background-position:66% center}.home-hero h1{font-size:3.7rem;white-space:normal}.hero-profile{transform:none}.home-section{padding:5.5rem 0}.skill-grid{gap:.7rem}}
+
+/* Ink-wash edges, illustrated headings, and vertical case-study scroll */
+.home-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 32px 45px rgba(66,55,43,.13),inset 0 -35px 48px rgba(82,63,43,.12),inset 34px 0 46px rgba(75,62,47,.12),inset -34px 0 46px rgba(75,62,47,.12);background:radial-gradient(ellipse at 4% 3%,rgba(53,51,44,.16),transparent 19%),radial-gradient(ellipse at 96% 7%,rgba(92,71,51,.12),transparent 18%),radial-gradient(ellipse at 5% 97%,rgba(100,75,50,.1),transparent 20%),radial-gradient(ellipse at 96% 96%,rgba(51,63,58,.11),transparent 20%);mix-blend-mode:multiply;opacity:.75}
+.home-hero::after{content:"";position:absolute;inset:10px;z-index:1;pointer-events:none;border:1px solid rgba(75,61,45,.08);filter:blur(3px);border-radius:44% 2% 38% 3%/3% 42% 4% 35%}
+.home-section>.section-title,.content-section>.section-title{max-width:860px;min-height:230px;padding:3.2rem 3.5rem;display:flex;flex-direction:column;justify-content:center;isolation:isolate}
+.home-section>.section-title::before,.content-section>.section-title::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(90deg,rgba(246,241,230,.22),rgba(246,241,230,.55)),url('/visuals/literary-divider.webp');background-size:cover;background-position:center;border-radius:48% 6% 42% 5%/9% 45% 8% 38%;filter:saturate(.72);opacity:.82;mask-image:radial-gradient(ellipse at center,#000 38%,rgba(0,0,0,.88) 58%,transparent 92%)}
+.home-section:nth-of-type(even)>.section-title::before,.content-section:nth-of-type(even)>.section-title::before{transform:scaleX(-1)}
+.section-title p{position:relative;z-index:1}.section-title::after{position:relative}
+.school-badge{display:inline-block;margin-left:.7rem;vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(148,75,62,.62);padding:.22rem .48rem;border:1px solid rgba(148,75,62,.2);border-radius:99px}
+.info-placeholders div{background:rgba(247,240,225,.72);border-style:solid;border-color:rgba(91,70,48,.14)}.info-placeholders strong{color:#8f4a3d}.info-placeholders span{font-size:.74rem;line-height:1.55}
+.experience-photo img{filter:saturate(.72) sepia(.06) contrast(.96)}
+body:has(.case-hero){background-image:linear-gradient(rgba(245,239,226,.82),rgba(245,239,226,.82)),url('/visuals/case-study-scroll.webp');background-size:100% auto;background-position:center top;background-attachment:fixed}
+body:has(.case-hero) .shell{position:relative}.case-hero{position:relative;background:rgba(249,244,232,.62);border:1px solid rgba(86,65,43,.12);border-radius:5px 28px 7px 22px;margin-top:2rem;box-shadow:0 22px 55px rgba(65,48,31,.08);backdrop-filter:blur(7px)}
+.case-hero::before{content:"";position:absolute;inset:-2rem -4vw;z-index:-1;background:url('/visuals/literary-divider.webp') center/cover no-repeat;opacity:.32;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 76%)}
+.case-nav{background:rgba(244,238,224,.86)}
+.content-section{position:relative;margin:4rem 0;padding:7rem 3vw;background:rgba(251,247,237,.72);border:1px solid rgba(83,64,43,.12);border-radius:6px 30px 8px 24px;box-shadow:0 18px 50px rgba(66,49,31,.055);backdrop-filter:blur(5px)}
+.content-section:nth-of-type(even){margin-left:3vw}.content-section:nth-of-type(odd){margin-right:3vw}
+.metric-card,.chart-frame{background:rgba(255,251,242,.86)}.action-grid article{background:rgba(234,212,201,.84)}.limit-section{background:rgba(234,228,213,.84)}
+.next-project{margin-top:4rem;background:rgba(246,240,227,.78);border-radius:5px 24px 7px 18px;padding-left:3vw;padding-right:3vw}
+@media(max-width:900px){.home-section>.section-title,.content-section>.section-title{min-height:200px;padding:2.5rem}.content-section,.content-section:nth-of-type(even),.content-section:nth-of-type(odd){margin:2rem 0}body:has(.case-hero){background-attachment:scroll;background-size:auto 100%}}
+@media(max-width:600px){.home-section>.section-title,.content-section>.section-title{min-height:180px;padding:2rem 1.25rem}.school-badge{display:block;width:max-content;margin:.45rem 0 0}.content-section{padding:4.5rem 1rem}.home-hero::after{inset:5px}}
+
+/* Final background and hero blending adjustments */
+body{background-color:#f4efe3;background-image:radial-gradient(circle at 18% 8%,rgba(255,255,255,.34),transparent 28%),repeating-linear-gradient(96deg,rgba(98,76,48,.018) 0,rgba(98,76,48,.018) 1px,transparent 1px,transparent 7px);background-attachment:fixed}.shell{background:transparent}
+.home-hero{border-bottom:0;box-shadow:none;background-color:#f4efe3;background-image:linear-gradient(90deg,#f4efe3 0%,rgba(244,239,227,.94) 34%,rgba(244,239,227,.1) 67%),linear-gradient(180deg,#f4efe3 0%,transparent 14%,transparent 84%,#f4efe3 100%),url('/visuals/literary-hero.webp')}
+.home-hero::before,.home-hero::after{display:none}
+.hero-action-primary{color:#fff9ef}.hero-action-primary strong{color:#fff9ef}.hero-action-primary small{color:rgba(255,249,239,.82)}.hero-action-primary>svg{color:#f4d8c1}
+@media(max-width:900px){.home-hero{background-image:linear-gradient(180deg,#f4efe3 0%,rgba(244,239,227,.93) 48%,rgba(244,239,227,.16) 78%,#f4efe3 100%),url('/visuals/literary-hero.webp')}}
+
+/* Shared handscroll background across home and case-study routes */
+body{background-color:#f4efe3;background-image:linear-gradient(rgba(244,239,227,.82),rgba(244,239,227,.82)),url('/visuals/case-study-scroll.webp');background-size:100% auto;background-position:center top;background-attachment:fixed;background-repeat:repeat-y}
+.home-hero{background-image:linear-gradient(90deg,#f4efe3 0%,rgba(244,239,227,.92) 38%,rgba(244,239,227,.2) 72%),linear-gradient(180deg,#f4efe3 0%,transparent 15%,transparent 84%,#f4efe3 100%),url('/visuals/case-study-scroll.webp');background-size:cover;background-position:center 18%}
+@media(max-width:900px){body{background-attachment:scroll;background-size:auto 100%}.home-hero{background-image:linear-gradient(180deg,#f4efe3 0%,rgba(244,239,227,.92) 50%,rgba(244,239,227,.24) 80%,#f4efe3 100%),url('/visuals/case-study-scroll.webp');background-position:center top}}
+
+/* Translucent rice-paper panels over the shared handscroll */
+.home-hero{background:rgba(249,245,235,.48);backdrop-filter:blur(1.5px);border:1px solid rgba(96,75,49,.08);border-radius:6px 26px 8px 20px}
+.home-section{margin:2rem 0;background:rgba(249,245,235,.46);backdrop-filter:blur(2px);border:1px solid rgba(96,75,49,.08);border-radius:6px 28px 8px 22px}
+.home-section:nth-of-type(odd)::before{opacity:.2}
+.hero-profile{background:rgba(249,245,235,.54);border-color:rgba(91,70,45,.16);box-shadow:0 18px 46px rgba(57,43,29,.08);backdrop-filter:blur(11px) saturate(.9)}
+.profile-proof strong{font-size:1.04rem}.profile-proof small{font-size:.88rem;line-height:1.5}.profile-proof>div>span{font-size:.78rem}.profile-proof>div{padding:1.15rem 0}
+.about-section>.section-title::before{background-size:200% 100%;background-position:left center;opacity:.82;mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.88) 34%,transparent 68%)}
+@media(max-width:900px){.home-hero{background:rgba(249,245,235,.55)}.home-section{background:rgba(249,245,235,.52)}}
+
+/* Editorial case-study layout */
+.case-hero{display:block;min-height:0;padding:4.5rem 4vw 4rem;margin-top:2rem;background:rgba(250,246,237,.7)}
+.case-kicker{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.2rem;border-bottom:1px solid rgba(82,64,43,.16)}
+.case-kicker>span:last-child{font:700 .72rem/1 Georgia,serif;letter-spacing:.16em;color:rgba(116,91,65,.62)}
+.case-hero h1{max-width:none;margin:2.2rem 0 2.8rem;font-size:clamp(3.2rem,6vw,5.4rem);line-height:1.08;letter-spacing:-.055em;text-wrap:balance}
+.case-hero-bottom{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:5vw;align-items:end}
+.case-intro .lead{margin:0 0 .8rem;font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:clamp(1.4rem,2vw,2rem)}
+.case-intro .button{margin-top:1.25rem}.decision-card{padding:1.6rem 1.8rem;border-radius:4px 18px 6px 14px;background:rgba(214,224,213,.72);border-left:3px solid rgba(102,118,106,.68)}
+.decision-card p{margin:.65rem 0 0;font-size:1.12rem}
+#method.split-section{display:block}.split-section>.section-title{max-width:100%;min-height:180px;margin-bottom:2rem;padding:2.5rem 3rem}.split-section>.section-title h2{white-space:nowrap;margin:.7rem 0;font-size:clamp(2.7rem,5vw,4.4rem)}
+.method-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.method-list>div{grid-template-columns:44px 1fr;align-items:center;padding:1.5rem 1.4rem;border:1px solid rgba(82,64,43,.14);border-radius:4px 16px 6px 12px;background:rgba(255,251,242,.7)}.method-list>div p{font-size:1rem}.method-list>div span{font-size:.75rem}
+.chart-area{height:370px;display:flex;align-items:center;justify-content:center}.chart-area>.recharts-responsive-container{margin:0 auto}.recharts-default-tooltip{font-size:.8rem!important}.recharts-tooltip-cursor{transition:all .15s ease}.charts-grid{align-items:stretch}.chart-frame{display:flex;flex-direction:column}.chart-frame .chart-caption{margin-top:auto}
+@media(max-width:900px){.case-hero{padding:3.5rem 2rem}.case-hero-bottom{grid-template-columns:1fr}.case-hero h1{font-size:clamp(3rem,9vw,4.8rem)}.method-list{grid-template-columns:1fr}.split-section>.section-title{padding:2rem}.chart-area{height:350px}}
+@media(max-width:600px){.case-hero{padding:3rem 1.25rem}.case-kicker{align-items:flex-start;gap:1rem}.case-hero h1{font-size:clamp(2.7rem,13vw,4rem)}.split-section>.section-title h2{font-size:2.7rem}.chart-area{height:330px}}
+
+/* Readable, lightly classical typography and integrated portrait */
+.home-hero{font-family:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC",serif}.home-hero .eyebrow{font-family:Georgia,"Times New Roman",serif}.home-hero h1{font-weight:620;letter-spacing:-.045em}.home-hero .hero-line{font-weight:500;letter-spacing:.015em}.home-hero .role-tag,.home-hero .hero-action,.home-hero .hero-link,.hero-profile{font-family:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC",serif}.hero-profile strong{font-weight:700}.profile-heading p,.profile-proof small{letter-spacing:.025em}
+.portrait-photo{position:relative;min-height:470px;margin:0;border:1px solid rgba(121,83,58,.2);border-radius:5px 25px 8px 19px;overflow:hidden;background:#eee4d3;box-shadow:0 18px 46px rgba(62,46,29,.08)}
+.portrait-photo::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 38px rgba(80,59,36,.08);background:linear-gradient(180deg,transparent 72%,rgba(67,48,29,.08))}
+.portrait-photo img{width:100%;height:100%;min-height:470px;display:block;object-fit:cover;object-position:center 18%;filter:saturate(.88) contrast(.98);transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.portrait-photo:hover img{transform:scale(1.025)}
+@media(max-width:900px){.portrait-photo,.portrait-photo img{min-height:560px}.portrait-photo img{object-position:center 16%}}
+@media(max-width:600px){.portrait-photo,.portrait-photo img{min-height:440px}}
