@@ -107,7 +107,7 @@ body{background:linear-gradient(180deg,#fffaf3 0%,#fffdf8 45%,#fff9f2 100%)}
 .experience-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.76) contrast(.96);transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .45s ease}
 .experience-photo span{position:absolute;left:1.1rem;bottom:1rem;z-index:1;color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.16em}
 .experience-card:hover .experience-photo img{transform:scale(1.045);filter:saturate(.88) contrast(1)}
-.skill-grid>div{position:relative;isolation:isolate;overflow:hidden;background-image:url('/visuals/capability-mosaic.webp');background-size:300% 200%;background-repeat:no-repeat;min-height:184px;transition:transform .35s ease,box-shadow .35s ease}
+.skill-grid>div{position:relative;isolation:isolate;overflow:hidden;background-image:url('/visuals/capability-mosaic-literary.webp');background-size:300% 200%;background-repeat:no-repeat;min-height:184px;transition:transform .35s ease,box-shadow .35s ease}
 .skill-grid>div::before{content:"";position:absolute;inset:0;z-index:0;background:rgba(255,253,249,.78);transition:background .35s ease}
 .skill-grid>div>span,.skill-grid>div>p{position:relative;z-index:1}
 .skill-grid>div:nth-child(1){background-position:0 0}.skill-grid>div:nth-child(2){background-position:50% 0}.skill-grid>div:nth-child(3){background-position:100% 0}.skill-grid>div:nth-child(4){background-position:0 100%}.skill-grid>div:nth-child(5){background-position:50% 100%}.skill-grid>div:nth-child(6){background-position:100% 100%}
@@ -115,3 +115,31 @@ body{background:linear-gradient(180deg,#fffaf3 0%,#fffdf8 45%,#fff9f2 100%)}
 .skill-grid>div:hover::before{background:rgba(255,253,249,.57)}
 @media(max-width:900px){.experience-photo{height:300px}}
 @media(max-width:640px){.experience-photo{height:220px}.skill-grid>div{min-height:170px}}
+
+/* Chinese literary collage art direction */
+:root{--paper:#f4efe3;--ink:#302d28;--muted:#746d62;--sage:#66766a;--sage-light:#dfe4d8;--clay:#a65343;--clay-light:#ead4c9;--line:rgba(74,62,48,.16);--white:#fffaf0;--blue-soft:#dce7e3}
+body{background-color:#f4efe3;background-image:radial-gradient(circle at 18% 8%,rgba(255,255,255,.75),transparent 28%),repeating-linear-gradient(96deg,rgba(98,76,48,.018) 0,rgba(98,76,48,.018) 1px,transparent 1px,transparent 7px);color:var(--ink)}
+.site-header{background:rgba(248,243,232,.82);border-color:rgba(87,68,47,.14);box-shadow:0 12px 34px rgba(74,57,38,.08)}
+.brand-mark{background:#a65343;box-shadow:inset 0 0 0 3px rgba(255,250,240,.48);font-family:"STKaiti","KaiTi",serif}
+.home-hero{position:relative;isolation:isolate;min-height:calc(100vh - 92px);padding:7.5rem 2vw 6.5rem;background-image:linear-gradient(90deg,rgba(246,241,230,.98) 0%,rgba(246,241,230,.9) 36%,rgba(246,241,230,.08) 63%),url('/visuals/literary-hero.webp');background-size:cover;background-position:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-geometry{display:none}.hero-copy{position:relative;z-index:2;max-width:690px}.home-hero h1,.section-title h2,.about-copy h3,.education-card h3,.experience-summary h3,.project-card h3{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-weight:650}
+.home-hero h1{font-size:clamp(4rem,6vw,6rem);white-space:nowrap;color:#302d28;text-shadow:0 1px rgba(255,255,255,.5)}
+.eyebrow,.section-title>span{color:#944b3e}.role-tag{border-radius:3px 11px 4px 9px;border:1px solid rgba(115,87,58,.18);box-shadow:2px 3px 0 rgba(112,81,52,.07);background:rgba(247,239,221,.88)}
+.role-tag:nth-child(2),.role-tag:nth-child(4){transform:rotate(-1.2deg)}.role-tag:nth-child(1),.role-tag:nth-child(3){transform:rotate(.8deg)}
+.hero-action{border-radius:4px 15px 6px 13px}.hero-action-primary{background:#9c4e40}.hero-action-secondary{background:rgba(249,244,232,.88);border-color:rgba(82,65,44,.25)}
+.hero-profile{position:relative;z-index:2;align-self:end;margin-bottom:-2rem;background:rgba(247,241,228,.83);border:1px solid rgba(84,65,43,.18);border-radius:5px 22px 7px 18px;box-shadow:0 22px 60px rgba(57,43,29,.14);backdrop-filter:blur(8px);transform:rotate(-.6deg)}
+.hero-profile::before{content:"";position:absolute;width:64px;height:18px;top:-9px;left:50%;transform:translateX(-50%) rotate(1deg);background:rgba(210,183,137,.45);box-shadow:0 1px 3px rgba(60,44,28,.08)}
+.home-section{position:relative;padding:7rem 2vw}.home-section:nth-of-type(odd)::before{content:"";position:absolute;inset:0 -5vw;z-index:-1;background-image:linear-gradient(rgba(246,241,230,.84),rgba(246,241,230,.84)),url('/visuals/literary-divider.webp');background-size:cover;background-position:center;opacity:.75}
+.section-title{position:relative}.section-title::after{content:"";display:block;width:46px;height:7px;margin-top:1.5rem;background:#a65343;clip-path:polygon(0 20%,88% 0,100% 70%,12% 100%);opacity:.8}
+.section-title h2{letter-spacing:-.02em}.section-title>span{font-family:Georgia,serif;letter-spacing:.2em}
+.about-copy,.experience-card,.project-card,.skill-grid>div{background-color:rgba(255,250,240,.84);border-color:rgba(82,64,43,.17);box-shadow:0 16px 42px rgba(72,53,33,.055)}
+.portrait-placeholder{background-image:linear-gradient(rgba(240,231,213,.78),rgba(240,231,213,.78)),url('/visuals/literary-divider.webp');background-size:cover;border-color:rgba(138,80,62,.3);border-radius:4px 25px 8px 19px}
+.about-copy,.experience-card{border-radius:5px 28px 7px 21px}.education-card{border-radius:6px 24px 8px 18px;background:rgba(251,246,235,.88)}
+.education-card::before,.project-card::before{content:"";position:absolute;top:14px;right:15px;width:24px;height:24px;border:1px solid rgba(166,83,67,.42);box-shadow:inset 0 0 0 3px rgba(166,83,67,.08);transform:rotate(5deg)}
+.education-photo,.experience-photo{border-radius:3px 16px 5px 12px;filter:sepia(.08)}
+.project-card{border-radius:5px 22px 7px 16px}.project-card:nth-child(2){transform:rotate(-.35deg)}.project-card:nth-child(3){transform:rotate(.35deg)}.project-card:hover{transform:translateY(-7px) rotate(0)}
+.skill-grid{gap:1rem;border:0}.skill-grid>div{border:1px solid rgba(82,64,43,.16);border-radius:4px 17px 6px 13px}.skill-grid>div::before{background:rgba(248,241,226,.64)}.skill-grid>div:hover::before{background:rgba(248,241,226,.46)}
+.floating-dock{background:rgba(59,55,48,.84);border-radius:4px 18px 6px 15px}.back-top{background:#9c4e40}
+footer{position:relative;background-image:linear-gradient(rgba(244,239,227,.72),rgba(244,239,227,.72)),url('/visuals/literary-divider.webp');background-size:cover;background-position:center}
+@media(max-width:900px){.home-hero{grid-template-columns:1fr;min-height:auto;background-image:linear-gradient(180deg,rgba(246,241,230,.98) 0%,rgba(246,241,230,.84) 58%,rgba(246,241,230,.2) 100%),url('/visuals/literary-hero.webp');background-position:60% center;padding-bottom:5rem}.hero-profile{max-width:620px;margin:2rem 0 0}.project-card:nth-child(2),.project-card:nth-child(3){transform:none}}
+@media(max-width:600px){.home-hero{padding:5.5rem 0 3.5rem;background-position:66% center}.home-hero h1{font-size:3.7rem;white-space:normal}.hero-profile{transform:none}.home-section{padding:5.5rem 0}.skill-grid{gap:.7rem}}
