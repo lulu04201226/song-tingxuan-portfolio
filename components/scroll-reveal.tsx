@@ -1,17 +1,20 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export function ScrollReveal(){
   const pathname=usePathname();
+  useLayoutEffect(()=>{
+    if(pathname.startsWith("/projects/")){
+      history.scrollRestoration="manual";
+      window.scrollTo(0,0);
+      document.documentElement.scrollTop=0;
+      document.body.scrollTop=0;
+    }
+  },[pathname]);
   useEffect(()=>{
     const root=document.documentElement;
-    if(pathname.startsWith("/projects/")){
-      root.classList.add("route-resetting");
-      window.scrollTo(0,0);
-      requestAnimationFrame(()=>root.classList.remove("route-resetting"));
-    }
     root.classList.add("motion-ready");
     const targets=Array.from(document.querySelectorAll<HTMLElement>(".reveal-section"));
     targets.forEach((target)=>target.classList.remove("is-visible"));
