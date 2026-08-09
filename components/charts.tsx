@@ -4,7 +4,18 @@ import { abLift, abMethods, aiFeatures, aiTasks, channels, funnel, modelRates, u
 
 const sage="#778C79", clay="#B57C65", sand="#C9B99B", grid="#E4E1DA";
 const tip={contentStyle:{background:"rgba(255,253,249,.96)",border:"1px solid rgba(83,64,43,.18)",borderRadius:12,color:"#353733",boxShadow:"0 12px 30px rgba(62,48,34,.12)"},labelStyle:{fontWeight:700,marginBottom:4},cursor:{fill:"rgba(166,83,67,.07)"},wrapperStyle:{zIndex:10}};
-export function ChartFrame({title,subtitle,children,caption}:{title:string,subtitle:string,children:React.ReactNode,caption:string}){return <figure className="chart-frame"><figcaption><strong>{title}</strong><span>{subtitle}</span></figcaption><div className="chart-area">{children}</div><p className="chart-caption">{caption}</p></figure>}
+function NumericText({text}:{text:string}){const parts=text.split(/((?:p\s*[=<]\s*)?[+-]?\d[\d,]*(?:\.\d+)?(?:%|pct|pp)?)/gi);return <>{parts.map((part,index)=>/^(?:p\s*[=<]\s*)?[+-]?\d[\d,]*(?:\.\d+)?(?:%|pct|pp)?$/i.test(part)?<strong className="number-highlight" key={index}>{part}</strong>:part)}</>}
+const businessCaptions:Record<string,string>={
+ "实验组相对变化":"现象：GMV 与客单价显著转弱，体验护栏小幅改善。业务含义：体验改善不足以支持当前补贴路径放量。",
+ "检验方法改变显著性判断":"现象：独立样本检验未显著，日期配对后 p=0.0002。业务含义：匹配实验结构后才能识别真实负向效应。",
+ "用户需求结构":"现象：问答占 54.55%，超过全部需求的一半。业务含义：问答应作为核心产品入口优先优化。",
+ "获胜回答的可解释特征":"现象：获胜回答更常使用列表和代码块，也更少拒答。业务含义：可形成回答模板假设，但仍需 A/B 测试验证。",
+ "Top 模型 × 任务胜率":"现象：GPT-4 跨任务领先，写作场景差距最小。业务含义：常规写作更适合验证低成本模型路由。",
+ "五级漏斗到达量":"现象：商品页→支付页转化率仅 13.83%，绝对流失量 42,756 条。业务含义：这是最高优先级增长杠杆。",
+ "新老用户分环节转化":"现象：支付页→确认页的新老用户差距最大，为 13.25pct。业务含义：新用户首购流程需要独立设计并进入分层 A/B 实验。",
+ "渠道原始与结构标准化转化率":"现象：Direct 从原始 3.03% 校正为 2.41%。业务含义：表面优势主要来自老用户占比高，不能直接归因渠道质量。",
+};
+export function ChartFrame({title,subtitle,children,caption}:{title:string,subtitle:string,children:React.ReactNode,caption:string}){const businessCaption=businessCaptions[title]??caption;return <figure className="chart-frame"><figcaption><strong>{title}</strong><span><NumericText text={subtitle}/></span></figcaption><div className="chart-area">{children}</div><p className="chart-caption"><NumericText text={businessCaption}/></p></figure>}
 export function AbLiftChart(){return <ChartFrame title="实验组相对变化" subtitle="增长与效率指标为相对变化；完成率、取消率为百分点变化" caption="GMV 与客单价显著转弱；体验护栏小幅改善。"><ResponsiveContainer><BarChart data={abLift} margin={{top:10,right:12,left:0,bottom:42}}><CartesianGrid stroke={grid} vertical={false}/><XAxis dataKey="name" tick={{fontSize:11}} interval={0} angle={-24} textAnchor="end" height={62}/><YAxis unit="%" tick={{fontSize:11}} width={50}/><Tooltip {...tip} formatter={(v)=>[`${Number(v).toFixed(2)}%`,`变化`]}/><Bar dataKey="value" radius={[6,6,0,0]}>{abLift.map((d,i)=><Cell key={i} fill={d.value>=0?sage:clay}/>)}</Bar></BarChart></ResponsiveContainer></ChartFrame>}
 export function AbMethodChart(){return <ChartFrame title="检验方法改变显著性判断" subtitle="p 值；虚线位置为 α = 0.05" caption="忽略日期配对时，大盘波动掩盖了系统性的组间差异。"><ResponsiveContainer><BarChart data={abMethods} layout="vertical" margin={{left:0,right:24}}><CartesianGrid stroke={grid} horizontal={false}/><XAxis type="number" domain={[0,1]}/><YAxis type="category" dataKey="name" width={84} tick={{fontSize:11}}/><Tooltip {...tip} formatter={(v)=>[Number(v).toFixed(4),"p 值"]}/><Bar dataKey="p" fill={sage} radius={[0,6,6,0]}/></BarChart></ResponsiveContainer></ChartFrame>}
 export function AiTaskChart(){return <ChartFrame title="用户需求结构" subtitle="n = 10,000；Hybrid 分类" caption="问答占比超过一半，是 AI 对话产品最核心的入口。"><ResponsiveContainer><PieChart><Pie data={aiTasks} dataKey="value" nameKey="name" innerRadius="55%" outerRadius="80%" paddingAngle={2}>{aiTasks.map((_,i)=><Cell key={i} fill={[sage,clay,sand,"#9DA99D","#D2AA94","#C6C5BE"][i]}/>)}</Pie><Tooltip {...tip} formatter={(v)=>`${v}%`}/><Legend verticalAlign="bottom" iconType="circle"/></PieChart></ResponsiveContainer></ChartFrame>}

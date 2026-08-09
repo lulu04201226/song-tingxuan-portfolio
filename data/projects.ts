@@ -16,6 +16,7 @@ export const projects: ProjectCaseStudy[] = [
 export const getProject = (slug: ProjectCaseStudy["slug"]) => projects.find(p => p.slug === slug)!;
 
 export const projectCardDetails: Record<ProjectCaseStudy["slug"], {
+  question: string;
   goal: string;
   role: string;
   methods: string[];
@@ -24,27 +25,30 @@ export const projectCardDetails: Record<ProjectCaseStudy["slug"], {
   deliverable: string;
 }> = {
   "ab-test": {
-    goal: "判断提高优惠券力度能否拉动订单与 GMV，并验证新增收益能否覆盖补贴。",
-    role: "独立负责｜实验评估、统计检验与策略输出",
-    methods: ["29 天日期级配对 A/B 实验", "配对 t 检验", "Wilcoxon / Bootstrap 稳健性检查"],
-    conclusion: "日均 GMV -1.26%（p=0.0002），客单价 -1.63%，订单量基本持平。",
-    interpretation: "活动并非没有影响；更高补贴未带来订单增量，反而压低每笔订单贡献，导致收益被侵蚀。",
-    deliverable: "完成实验评估报告，并提出固定券额、稳定分流与分层小额券定向投放的第二轮实验方案。",
+    question: "提高优惠券力度，是否值得全量推广？",
+    goal: "判断提额能否拉动订单与 GMV，验证新增收益是否覆盖补贴成本。",
+    role: "独立负责｜实验评估、统计检验、策略输出",
+    methods: ["Wilcoxon / Bootstrap 稳健性检验"],
+    conclusion: "日均 GMV -1.26%（p=0.0002），客单价 -1.63%，订单总量基本持平。",
+    interpretation: "活动并未带来增量；更高补贴引发订单蚕食，导致收益被侵蚀。",
+    deliverable: "完整实验评估报告，输出固定面额、梯度分流、分层小额定向投放的第二轮实验方案。",
   },
   "ai-product": {
-    goal: "识别用户使用 AI 的核心任务、偏好怎样的回答，并为不同任务选择合适的模型。",
+    question: "用户用 AI 做什么？偏好什么样的回答形式？",
+    goal: "识别用户核心诉求，优化交互与模型选型策略。",
     role: "独立负责｜需求分类、偏好分析与产品策略设计",
     methods: ["规则 + LLM Hybrid 分类", "回答特征工程", "分任务模型胜率分析"],
     conclusion: "问答占 54.55%；获胜回答的列表使用率高 9.26pct；gpt-4 与 gpt-3.5-turbo 在写作场景的差距最小，为 11.3pct。",
-    interpretation: "用户首先把 AI 当作问题解决工具；清晰结构与少拒答更受偏好，常规写作比知识问答更适合低成本模型路由。",
-    deliverable: "完成需求与模型偏好报告，输出分任务回答模板、多语言写作入口和分层模型路由方案。",
+    interpretation: "用户优先将 AI 作为问题解决工具；偏好清晰结构、精简回答，常规写作场景的低成本模型具备替换空间。",
+    deliverable: "需求分类与模型偏好报告，输出分层任务模板、多语言入口和分层模型路由方案。",
   },
   "user-behavior": {
-    goal: "在不增加流量的前提下定位最大转化损失，并确定最值得优先验证的人群与渠道机会。",
-    role: "独立负责｜漏斗诊断、用户分层与增长实验规划",
-    methods: ["五级漏斗与绝对流失诊断", "新老用户分环节对比", "用户类型 × 设备结构标准化"],
-    conclusion: "商品页→支付页转化率仅 13.83%，流失 42,756 条；该环节提升 1pct，理论可新增约 174 条确认记录。",
-    interpretation: "增长瓶颈不在获客，而在商品页后的购买决策；Direct 的原始优势也被老用户占比放大，不能直接归因于渠道质量。",
-    deliverable: "完成漏斗增长报告，输出 P0 商品页组合实验、P1 新用户首购路径及 SEO / Ads 承接优化方案。",
+    question: "现有流量规模下，最大增长杠杆在哪里？",
+    goal: "不新增流量前提下定位转化瓶颈，筛选优先验证人群与渠道机会。",
+    role: "独立负责｜漏斗诊断、用户分层、增长实验规划",
+    methods: ["用户类型 × 设备结构标准化"],
+    conclusion: "商品页→支付页转化率仅 13.83%，流失 42,756 条；该环节转化率提升 1 个百分点，理论新增 174 条确认订单。",
+    interpretation: "增长瓶颈不在前端流量，而在商品页之后的购买链路；Direct 的原始转化优势来自老用户占比更高，不能直接归因渠道质量。",
+    deliverable: "漏斗增长分析报告，输出 P0 商品页组合实验、P1 新用户首购路径、SEO / Ads 渠道优化方案。",
   },
 };
