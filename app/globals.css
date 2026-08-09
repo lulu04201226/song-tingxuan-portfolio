@@ -291,6 +291,24 @@ html{scroll-behavior:auto!important}
  .case-hero{padding-left:3.2rem;padding-right:3.2rem}
  .project-card{max-width:none}.charts-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Recruiter-facing project summaries: complete enough to scan, compact enough to compare. */
+.project-card-detailed{min-height:700px;padding:1.8rem;isolation:isolate}
+.project-card-detailed h3{margin:2rem 0 .55rem;font-size:clamp(1.55rem,2vw,2rem)}
+.project-card-detailed .question{min-height:auto;margin:.2rem 0 1rem}
+.project-role{align-self:flex-start;margin-bottom:1.15rem;padding:.38rem .7rem;border-left:3px solid var(--clay);background:rgba(181,124,101,.08);color:#765347;font-size:.78rem;font-weight:700;letter-spacing:.02em}
+.project-brief{margin:0;display:grid;gap:0}
+.project-brief>div{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:.8rem;padding:.9rem 0;border-top:1px solid rgba(82,64,43,.13)}
+.project-brief dt{color:#985547;font-size:.76rem;font-weight:800;letter-spacing:.08em}
+.project-brief dd{margin:0;color:#4e504b;font-size:.88rem;line-height:1.62}
+.project-brief dd strong{display:block;color:#354547;font-size:.91rem;line-height:1.6}
+.conclusion-reading{display:block;margin-top:.45rem;color:#6f665d}
+.method-chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.method-chips>span{padding:.22rem .5rem;border:1px solid rgba(119,140,121,.24);border-radius:999px;background:rgba(221,229,220,.48);font-size:.74rem;line-height:1.45}
+.project-card-detailed .text-link{padding-top:1.1rem}
+@media(min-width:1200px){.project-card-detailed{min-height:720px}}
+@media(min-width:768px) and (max-width:1199px){.project-card-detailed{min-height:680px}.project-card-detailed:last-child{min-height:0}}
+@media(max-width:767px){.project-card-detailed{min-height:0}.project-brief>div{grid-template-columns:1fr;gap:.32rem}.project-brief dd{font-size:.94rem}.project-role{font-size:.82rem}}
 @media(min-width:1600px){
  body::before{content:"";position:fixed;z-index:-1;pointer-events:none;left:1.5vw;bottom:4vh;width:220px;height:310px;background:url('/visuals/literary-divider.webp') center/contain no-repeat;opacity:.1;filter:saturate(.55);transform:scaleX(-1) rotate(-3deg);mask-image:radial-gradient(ellipse at center,#000 25%,transparent 82%)}
 }
