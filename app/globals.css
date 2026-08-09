@@ -309,6 +309,15 @@ html{scroll-behavior:auto!important}
 @media(min-width:1200px){.project-card-detailed{min-height:720px}}
 @media(min-width:768px) and (max-width:1199px){.project-card-detailed{min-height:680px}.project-card-detailed:last-child{min-height:0}}
 @media(max-width:767px){.project-card-detailed{min-height:0}.project-brief>div{grid-template-columns:1fr;gap:.32rem}.project-brief dd{font-size:.94rem}.project-role{font-size:.82rem}}
+
+.case-brief{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:2.5rem}
+.case-brief article{padding:1.45rem 1.55rem;border:1px solid rgba(82,64,43,.15);border-radius:14px;background:rgba(255,251,242,.72)}
+.case-brief span{display:block;margin-bottom:.55rem;color:#985547;font-size:.75rem;font-weight:800;letter-spacing:.09em}
+.case-brief p{margin:0;color:#50524d;font-size:1rem;line-height:1.78}
+.action-grid article h3{margin:.65rem 0 .55rem;font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:1.35rem;line-height:1.35}
+.action-grid article p{margin:.4rem 0;font-weight:500;line-height:1.72}
+.action-grid article small{display:block;margin-top:1rem;padding-top:.8rem;border-top:1px solid rgba(140,86,66,.18);color:#765347;font-size:.8rem}
+@media(max-width:700px){.case-brief{grid-template-columns:1fr}.case-brief article{padding:1.2rem}.case-brief p{font-size:.96rem}}
 @media(min-width:1600px){
  body::before{content:"";position:fixed;z-index:-1;pointer-events:none;left:1.5vw;bottom:4vh;width:220px;height:310px;background:url('/visuals/literary-divider.webp') center/contain no-repeat;opacity:.1;filter:saturate(.55);transform:scaleX(-1) rotate(-3deg);mask-image:radial-gradient(ellipse at center,#000 25%,transparent 82%)}
 }
