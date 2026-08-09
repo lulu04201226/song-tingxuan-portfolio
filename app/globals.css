@@ -322,7 +322,7 @@ html{scroll-behavior:auto!important}
 .number-highlight{color:#8f493e;font-weight:800;font-variant-numeric:tabular-nums}
 .skills-section .skill-grid>div{display:flex;min-height:190px;flex-direction:column;justify-content:flex-start}
 .skills-section .skill-grid p{margin:.75rem 0 .55rem;font-size:1.18rem;font-weight:650}
-.skills-section .skill-grid small{color:#666960;font-size:.86rem;line-height:1.7}
+.skills-section .skill-grid small{color:#252722;font-size:.86rem;font-weight:550;line-height:1.7}
 .education-section .section-title p{font-size:1.16rem;line-height:1.8}
 .education-note{font-size:1rem!important;line-height:1.75}
 @media(min-width:1600px){
