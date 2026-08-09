@@ -322,7 +322,9 @@ html{scroll-behavior:auto!important}
 .number-highlight{display:inline!important;color:#8f493e;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .skills-section .skill-grid>div{display:flex;min-height:190px;flex-direction:column;justify-content:flex-start}
 .skills-section .skill-grid p{margin:.75rem 0 .55rem;font-size:1.18rem;font-weight:650}
-.skills-section .skill-grid small{position:relative;z-index:2;align-self:flex-start;max-width:95%;padding:.25rem .4rem;color:#11120f;background:rgba(250,247,239,.72);font-size:1rem;font-weight:650;line-height:1.65;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+.skills-section .skill-grid>div::before{background:linear-gradient(180deg,rgba(248,243,232,.62) 0%,rgba(248,243,232,.88) 58%,rgba(248,243,232,.96) 100%)}
+.skills-section .skill-grid>div:hover::before{background:linear-gradient(180deg,rgba(248,243,232,.52) 0%,rgba(248,243,232,.82) 58%,rgba(248,243,232,.94) 100%)}
+.skills-section .skill-grid small{position:relative;z-index:2;max-width:94%;padding:0;color:#403d37;background:none;font-size:.9rem;font-weight:500;line-height:1.72;letter-spacing:.01em;text-shadow:none}
 .education-section .section-title p{font-size:1.16rem;line-height:1.8}
 .education-note{font-size:1rem!important;line-height:1.75}
 @media(min-width:1600px){
