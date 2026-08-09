@@ -318,6 +318,7 @@ html{scroll-behavior:auto!important}
 .action-grid article p{margin:.4rem 0;font-weight:500;line-height:1.72}
 .action-grid article small{display:block;margin-top:1rem;padding-top:.8rem;border-top:1px solid rgba(140,86,66,.18);color:#765347;font-size:.8rem}
 @media(max-width:700px){.case-brief{grid-template-columns:1fr}.case-brief article{padding:1.2rem}.case-brief p{font-size:.96rem}}
+.metric-card small{display:block;margin-top:.65rem;padding-top:.65rem;border-top:1px solid rgba(82,64,43,.12);color:#8a8177;font-size:.78rem;line-height:1.55}
 @media(min-width:1600px){
  body::before{content:"";position:fixed;z-index:-1;pointer-events:none;left:1.5vw;bottom:4vh;width:220px;height:310px;background:url('/visuals/literary-divider.webp') center/contain no-repeat;opacity:.1;filter:saturate(.55);transform:scaleX(-1) rotate(-3deg);mask-image:radial-gradient(ellipse at center,#000 25%,transparent 82%)}
 }

@@ -86,11 +86,20 @@ const caseDetails: Record<ProjectCaseStudy["slug"], {
  },
 };
 
+const metricOverrides: Partial<Record<ProjectCaseStudy["slug"], {value:string;label:string;note:string}[]>> = {
+ "user-behavior": [
+  {value:"100,000",label:"匿名访问记录",note:"分析样本总量"},
+  {value:"2.40%",label:"整体最终转化率",note:"全站基准转化水平"},
+  {value:"13.83%",label:"商品页 → 支付页转化率",note:"流失最大环节"},
+  {value:"+174 单",label:"提升 1pct",note:"理论新增确认订单"},
+ ],
+};
+
 export function CaseStudy({project,charts}:{project:ProjectCaseStudy,charts:React.ReactNode}){
- const current=projects.findIndex(p=>p.slug===project.slug), next=projects[(current+1)%projects.length], detail=caseDetails[project.slug];
+ const current=projects.findIndex(p=>p.slug===project.slug), next=projects[(current+1)%projects.length], detail=caseDetails[project.slug], displayMetrics=metricOverrides[project.slug]??project.metrics;
  return <main id="top"><section className="case-hero"><div className="case-kicker"><span className="eyebrow">{project.eyebrow}</span><span>CASE / {String(current+1).padStart(2,"0")}</span></div><h1>{project.title}</h1><div className="case-hero-bottom"><div className="case-intro"><p className="lead">{project.question}</p><p className="case-summary">{project.summary}</p><div className="case-actions"><GithubButton href={project.github}/><FeishuButton href={publicFeishuLinks[project.slug]}/></div></div><div className="decision-card"><span>决策结论</span><p>{project.decision}</p></div></div></section>
  <nav className="case-nav" aria-label="案例页目录"><a href="#overview">项目速览</a><a href="#evidence">关键证据</a><a href="#method">分析方法</a><a href="#action">行动建议</a><a href="#limits">分析边界</a></nav>
- <section id="overview" className="content-section reveal-section"><SectionTitle kicker="01 / OVERVIEW" title="用指标快速理解项目"/><div className="case-brief"><article><span>业务目标</span><p>{detail.objective}</p></article><article><span>我的角色</span><p>{detail.role}</p></article><article><span>核心分析动作</span><p>{detail.analysis}</p></article><article><span>最终交付</span><p>{detail.delivery}</p></article></div><div className="metric-grid">{project.metrics.map(m=><div className="metric-card" key={m.label}><strong>{m.value}</strong><span>{m.label}</span>{m.note&&<small>{m.note}</small>}</div>)}</div></section>
+ <section id="overview" className="content-section reveal-section"><SectionTitle kicker="01 / OVERVIEW" title="用指标快速理解项目"/><div className="case-brief"><article><span>业务目标</span><p>{detail.objective}</p></article><article><span>我的角色</span><p>{detail.role}</p></article><article><span>核心分析动作</span><p>{detail.analysis}</p></article><article><span>最终交付</span><p>{detail.delivery}</p></article></div><div className="metric-grid">{displayMetrics.map(m=><div className="metric-card" key={m.label}><strong>{m.value}</strong><span>{m.label}</span>{m.note&&<small>{m.note}</small>}</div>)}</div></section>
  <section id="evidence" className="content-section reveal-section"><SectionTitle kicker="02 / EVIDENCE" title="关键数据证据" copy="图表与结论一一对应：先看数字，再看它对业务决策意味着什么。"/><div className="charts-grid">{charts}</div><div className="evidence-enrichment"><figure className="evidence-figure"><img src={project.reportEvidence.image} alt={project.reportEvidence.alt} loading="lazy"/><figcaption>{project.reportEvidence.alt}</figcaption></figure><div className="evidence-context"><h3>{project.reportEvidence.title}</h3><p>{project.reportEvidence.takeaway}</p><ul>{project.reportEvidence.points.map(point=><li key={point}>{point}</li>)}</ul></div></div><div className="insight-list">{detail.conclusions.map((x,i)=><article key={x}><span>0{i+1}</span><p>{x}</p></article>)}</div></section>
  <section id="method" className="content-section split-section reveal-section"><SectionTitle kicker="03 / METHOD" title="分析方法" copy="点击卡片，查看方法如何服务于这个项目的具体决策。"/><div className="method-list">{project.methods.map((x,i)=><details className="method-card" key={x}><summary><span>{String(i+1).padStart(2,"0")}</span><strong>{x}</strong><i aria-hidden>＋</i></summary><div className="method-page"><p>{methodApplications[project.slug][i]}</p></div></details>)}</div></section>
  <section id="action" className="content-section reveal-section density-light"><SectionTitle kicker="04 / ACTION" title="从洞察到行动" copy="按优先级安排资源，让结论进入可验证的落地路径。"/><div className="action-grid">{detail.actions.map(action=><article key={action.priority}><span>{action.priority}</span><h3>{action.title}</h3><p>{action.copy}</p>{action.meta&&<small>{action.meta}</small>}</article>)}</div></section>
