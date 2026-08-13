@@ -113,6 +113,10 @@ body{background:linear-gradient(180deg,#fffaf3 0%,#fffdf8 45%,#fff9f2 100%)}
 .experience-status{display:inline-flex;margin-top:.7rem;padding:.32rem .58rem;border:1px solid rgba(166,83,67,.2);border-radius:999px;background:rgba(234,212,201,.38);color:#85483c;font-size:.65rem;font-weight:800;letter-spacing:.09em}
 .experience-photo-commerce img{object-position:center 44%;transform:scaleX(-1)}
 .experience-card-current:hover .experience-photo-commerce img{transform:scaleX(-1) scale(1.045)}
+.operations-flow{grid-column:1/-1}.operations-flow-list{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.4rem}.operations-flow-list>div{display:flex;gap:.8rem;min-height:150px;padding:1.25rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,250,240,.68)}.operations-flow-list>div>span{color:var(--clay);font-size:.75rem;font-weight:800}.operations-flow-list p,.operations-flow-list strong,.operations-flow-list small{display:block;margin:0}.operations-flow-list strong{font-size:1.02rem}.operations-flow-list small{margin-top:.55rem;color:#4e4a43;line-height:1.65}
+.project-grid:has(.project-card:nth-child(4)) .project-card:last-child{grid-column:auto;min-height:430px}
+@media(max-width:900px){.operations-flow-list{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.operations-flow-list{grid-template-columns:1fr}.operations-flow-list>div{min-height:0}}
 .skill-grid>div{position:relative;isolation:isolate;overflow:hidden;background-image:url('/visuals/capability-mosaic-literary.webp');background-size:300% 200%;background-repeat:no-repeat;min-height:184px;transition:transform .35s ease,box-shadow .35s ease}
 .skill-grid>div::before{content:"";position:absolute;inset:0;z-index:0;background:rgba(255,253,249,.78);transition:background .35s ease}
 .skill-grid>div>span,.skill-grid>div>p{position:relative;z-index:1}

@@ -3,12 +3,19 @@ import { ProjectCaseStudy, projects } from "@/data/projects";
 import { FeishuButton, GithubButton, HighlightNumbers, SectionTitle } from "./site";
 
 const publicFeishuLinks: Record<ProjectCaseStudy["slug"], string> = {
+ "ebay-operations": "#feishu-preview",
  "ab-test": "https://my.feishu.cn/wiki/Wl2IwREdhijsppkqENzcAsYXnXb",
  "ai-product": "https://my.feishu.cn/wiki/MF9Nw2eTniNkYRkdGfGcu6Venhd",
  "user-behavior": "https://my.feishu.cn/wiki/Lelawexidi1cr7kH7j3cpkxQnIu",
 };
 
 const methodApplications: Record<ProjectCaseStudy["slug"], string[]> = {
+ "ebay-operations": [
+  "围绕店铺冷启动，统一标题、类目与多语种描述字段，明确商品信息的必填项、格式和刊登规则，为后续批量处理与指标分析建立稳定底座。",
+  "使用 LLM 批量完成英文文案润色、分类标签提取与信息标准化校对，同时设置规则和人工复核环节，过滤同质化、误差性与不合规输出。",
+  "以 SKU 为分析单元解析库存、定价、上架状态、曝光与滞销指标，识别低流量低效商品，并将诊断结果转化为下架和结构优化建议。",
+  "跟踪 GMV 与广告 ROI，拆解单品销售和投放效率，把周期复盘转化为定价、商品结构与投放策略的迭代依据。",
+ ],
  "ab-test": [
   "将同一天的实验组与对照组一一配对，消除共同的大盘波动。Welch 检验得到 p=0.9387，而日期级配对后 p=0.0002，识别出日均 GMV 约 -6,111 的负向差异。",
   "在配对 t 检验之外，用 Wilcoxon 符号秩检验与 20,000 次 Bootstrap 复核。两种稳健性检查都支持负向结论，同时揭示效果主要集中在实验后半程。",
@@ -33,6 +40,23 @@ const caseDetails: Record<ProjectCaseStudy["slug"], {
  objective:string; role:string; analysis:string; conclusions:string[];
  delivery:string; actions:{priority:string;title:string;copy:string;meta?:string}[]; limitations:string[];
 }> = {
+ "ebay-operations": {
+  objective:"参与 eBay 店铺 0–1 冷启动，建立可靠的商品数据底座与运营监控闭环，在保障刊登质量的同时提升商品信息处理效率。",
+  role:"个人合作创业项目｜商品元数据治理、LLM 提效流程设计、SKU 级指标监控与经营复盘",
+  analysis:"标准化梳理标题、类目和多语种描述，定义 AI 辅助处理与质量校验机制；以 SKU 为单元分析库存、曝光、滞销、GMV 与广告 ROI。",
+  conclusions:[
+   "统一商品元数据规范后，刊登合规、批量处理与后续分析拥有一致的数据口径。",
+   "LLM 能覆盖重复性文案与标签处理，但必须通过平台规则、质量筛选和人工复核控制错误输出。",
+   "SKU 级监控可以把低曝光、低动销和低投放效率商品定位到具体供给单元，为上下架和商品结构调整提供依据。",
+  ],
+  delivery:"交付商品信息规范、AI 辅助处理与校验流程、SKU 指标监控口径，以及商品结构和投放调优建议。",
+  actions:[
+   {priority:"P0",title:"统一商品数据规范",copy:"沉淀标题、类目、多语种描述和平台刊登规则，降低批量处理中的口径偏差。"},
+   {priority:"P1",title:"建立 AI 质量闭环",copy:"明确 LLM 输入模板、候选输出和复核规则，过滤同质化、误差性与不合规内容。"},
+   {priority:"P2",title:"推动经营指标迭代",copy:"以 SKU 为单位复盘曝光、动销、GMV 与广告 ROI，持续优化商品结构与投放策略。"},
+  ],
+  limitations:["经营数据涉及合作项目隐私，页面仅展示脱敏后的方法、流程与业务判断。","项目处于店铺冷启动阶段，长期留存、复购与规模化收益仍需持续跟踪。","平台规则与品类特征会变化，商品规范和 AI 校验机制需要持续维护。"],
+ },
  "user-behavior": {
   objective:"在不新增流量的前提下，定位电商转化流失瓶颈，输出可落地的分层实验增长方案，并量化各优化环节的理论收益。",
   role:"独立负责｜问题定义、数据清洗、漏斗诊断、分层分析、收益测算与实验规划",
